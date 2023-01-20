@@ -1,12 +1,24 @@
 import allure
 from selene import have, by
-from selene.support.shared import browser
-
+from selenium import webdriver
 from utils import attach
 
 
 @allure.title("Successful fill form")
 def test_successful():
+
+    capabilities = {
+        "browserName": "chrome",
+        "browserVersion": "100.0",
+        "selenoid:options": {
+            "enableVNC": True,
+            "enableVideo": False
+        }
+    }
+
+    driver = webdriver.Remote(
+        command_executor="http://selenoid:4444/wd/hub",
+        desired_capabilities=capabilities)
     first_name = "Dmitry"
     last_name = "Yanyshev"
 
