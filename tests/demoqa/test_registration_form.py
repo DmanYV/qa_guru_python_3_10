@@ -1,11 +1,10 @@
 import allure
 from selene import have, by
-from selene.support.shared import browser
 
 
 @allure.title("Successful fill form")
 def test_successful(setup_chrome):
-
+    browser = setup_chrome
     first_name = "Dmitry"
     last_name = "Yanyshev"
 
